@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Een's amazing website</title>
+        <style>
+    body {
+        background: rgb(30, 115, 122);
+        color: rgb(45, 45, 45);
+        padding: 10px;
+        font-family: arial;
+    }
+    #all-contents {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    /* navigation menu */
+    nav {
+        background: rgb(17, 96, 185);
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        padding: 10px;
+    }
+    nav h1 {
+        display: flex;
+        align-items: center;
+        color: white;
+        flex: 1;
+        margin: 0;
+    }
+    nav ul {
+        list-style-image: none;
+    }
+    nav li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* main container area beneath menu */
+    main {
+        background: rgb(141, 137, 126);
+        display: flex;
+    }
+    .sidebar {
+        margin-right: 25px;
+        padding: 10px;
+    }
+    .sidebar img {
+        width: 200px;
+    }
+    .content {
+        flex: 1;
+        padding: 15px;
+    }
+    h2, h3 {
+        margin: 0px;
+    }
+        </style>
+    </head>
+
+    <body>
+        <div id="all contents">
+            <nav>
+                <h1>Ian's Website</h1>
+                <ul>
+                    <li>
+                        <a href="index.html"> Home </a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html"> Portfolio </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <div class="sidebar">
+                    <img src="data:image/jpeg;base64,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">
+                </div>
+
+                <div class="content">
+                    <h2>Ian Brandt</h2>
+                    <p>
+                        Student at Northshore High
+                    </p>
+                </div>
+                
+                <div id="interestes">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Playing video games</li>
+                        <li>Learning code</li>
+                        <li>Arabic</li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
