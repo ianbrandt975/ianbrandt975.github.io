@@ -29,21 +29,35 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
         
         function createSawBlade(x, y) {
-        var hitZoneSize = 25;
-        var damageFromObstacle = 10;
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-        sawBladeHitZone.x = x;
-        sawBladeHitZone.y = groundY - y;
-        game.addGameItem(sawBladeHitZone);   
-        var obstacleImage = draw.bitmap('img/sawblade.png');
-        sawBladeHitZone.addChild(obstacleImage);
-        obstacleImage.x = -10;
-        obstacleImage.y = -10; 
+            var hitZoneSize = 25;
+            var damageFromObstacle = 10;
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            sawBladeHitZone.x = x;
+            sawBladeHitZone.y = groundY - y;
+            game.addGameItem(sawBladeHitZone);   
+            var obstacleImage = draw.bitmap('img/sawblade.png');
+            sawBladeHitZone.addChild(obstacleImage);
+            obstacleImage.x = -10;
+            obstacleImage.y = -10; 
         }
-
+        
+        function createMyObstacle(x,y){
+            var hitZoneSize = 25;
+            var damageFromObstacle = 30;
+            var myObstacleHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            myObstacleHitZone.x = x;
+            myObstacleHitZone.y = groundY - y;
+            game.addGameItem(myObstacleHitZone);
+            var myObstacleImage = draw.bitmap('img/Demon_sprite.png');
+            myObstacleHitZone.addChild(myObstacleImage);
+            myObstacleImage.x = -10;
+            myObstacleImage.y = -10;
+        }
+        
         createSawBlade(500, 150);
         createSawBlade(400, 100);
-        createSawBlade(300, 125)
+        createSawBlade(300, 125);
+        createMyObstacle(300, 100);
         // DO NOT EDIT CODE BELOW HERE
     }
 };
