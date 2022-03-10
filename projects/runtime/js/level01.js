@@ -53,11 +53,15 @@ var level01 = function (window) {
             myObstacleImage.x = -10;
             myObstacleImage.y = -10;
         }
-        
+    
         createSawBlade(500, 150);
         createSawBlade(400, 100);
         createSawBlade(300, 125);
         createMyObstacle(300, 100);
+        
+            var audio = new Audio('img/Doom-E2M1_SC-8850.mp3');//audio :)
+                audio.play();
+            document.getElementById("myAudio").loop = true;
         // DO NOT EDIT CODE BELOW HERE
     }
 };
@@ -66,5 +70,5 @@ var level01 = function (window) {
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
-    module.exports = level01;
+    module.exports = level01; 
 }
