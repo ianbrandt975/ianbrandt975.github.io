@@ -216,6 +216,9 @@ function runProgram(){
       
       ball.speedX = -ball.speedX;
       ball.speedY = ball.speedY;
+      if (b){
+        
+      }
   
     }
   }
