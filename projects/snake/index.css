@@ -1,9 +1,10 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(0, 0, 0);
 }
 
 #board {
+  margin: auto;
   width: 440px;
   height: 440px;
   border: 1px solid white;
@@ -13,8 +14,8 @@ body {
 
 #snake {
   background-color: teal;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   position: absolute;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
@@ -22,8 +23,16 @@ body {
 
 #apple {
   background-color: red;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  left: 100px;
+}
+#score {
+  background-color: whitesmoke;
+  border-radius: 3px;
+  border-color: white;
+  padding: auto;
+  text-align: center;
+  width: 50px;
+  height: 20px;
 }

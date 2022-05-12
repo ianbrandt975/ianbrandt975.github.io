@@ -28,13 +28,18 @@ function runProgram(){
   }
 
   var snake = Item("#snake", 100, 100, 0, 0);
+  var apple = Item("#apple", 140, 140, 0, 0 );
+  
+  var BOARD_WIDTH = 440;
+  var BOARD_HEIGHT = 440;
+  var direction;
   
   
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', KeyDown);                           // change 'eventType' to the type of event you want to handle
-  $(document).on('keyup', KeyUp)
+ 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -45,50 +50,69 @@ function runProgram(){
   */
   function newFrame() {
     
+    createFruit();
     moveSnake();
-    
+    doCollide();
+    boundaryCollision();
 
   }
   
   /* 
   Called in response to events.
   */
-  function KeyUp(event){
-
-    var key = event.which;
-
-    if(key === KEY.UP){
-      snake.speedY = 0;
-    }
-    if(key === KEY.DOWN){
-      snake.speedY = 0;
-    }
-    if(key === KEY.LEFT){
-      snake.speedX = 0;
-    }
-    if(key === KEY.RIGHT){
-      snake.speedX = 0;
-    }
-
-  }
   
+  function createFruit(){
+    $("#apple").css('top', apple.y);
+    $("#apple").css('left', apple.x);
+  }
+
+
   function KeyDown(event) {
 
     var key = event.which
     
-    if(key === KEY.UP){
+    if(key === KEY.UP && direction !== "South"){
+      direction = "North";
+      snake.speedX = 0;
       snake.speedY = -20;
     }
-    if(key === KEY.DOWN){
+    if(key === KEY.DOWN && direction !== "North"){
+      direction = "South";
+      snake.speedX = 0;
       snake.speedY = 20;
     }
-    if(key === KEY.LEFT){
+    if(key === KEY.LEFT && direction !== "East"){
+      direction = "West";
+      snake.speedY = 0;
       snake.speedX = -20;
     }
-    if(key === KEY.RIGHT){
+    if(key === KEY.RIGHT && direction !== "West"){
+      direction = "East";
+      snake.speedY = 0;
       snake.speedX = 20;
     }
 
+  }
+
+  function boundaryCollision() {
+    
+    if(snake.x > BOARD_WIDTH - 20 || snake.x < 0){
+      endGame();
+    }
+    if(snake.y > BOARD_HEIGHT - 20 || snake.y < 0){
+      endGame();
+    }
+
+  }
+
+  function doCollide(){
+    if(snake.x === fruit.x && snake.y === fruit.y){
+      var randomX = Math.random() * 440;  
+      var randomY = Math.random() * 440;  
+      fruit.x = (randomX % 20) + randomX;
+      fruit.y = (randomY % 20) + randomY;
+
+    }
   }
 
  
@@ -112,7 +136,7 @@ function runProgram(){
     
     snake.y += snake.speedY;
     $("#snake").css('top', snake.y);
-
+    
     snake.x += snake.speedX;
     $("#snake").css('left', snake.x);
 
