@@ -10,7 +10,11 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .grid div {
@@ -19,12 +23,11 @@ body{
 }
 
 .results {
-    width: auto;
+    width: 170px;
+    text-align: center;
     margin: auto;
-    background-color: grey;
-    text-decoration-color: white;
-    align-self: center;
-    padding: 0.0001%;
+    background-color: white;
+    position: relative
 }
 
 .invader {

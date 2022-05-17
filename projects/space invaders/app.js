@@ -87,7 +87,7 @@ let results = 0 // placeholder for the results
         }
 
         for (let i = 0; i < alienInvaders.length; i++) { // loops to check all values in the alienInvaders array
-            if(alienInvaders[i] > squares.length){ // detects if the furthest index of the alienInvaders array is further than the length of the squares array
+            if(alienInvaders[i] > squares.length - width){ // detects if the alienInvaders are further than squares.length
                 resultsDisplay.innerHTML = 'GAME OVER' // updates the results to diplay 'GAME OVER'
                 clearInterval(invadersId) // stops the invaders from moving
             }
@@ -100,7 +100,7 @@ let results = 0 // placeholder for the results
 
     } 
 
-invadersId = setInterval(moveInvaders, 300) // sets the speed at which the moveInvaders function will be called at
+invadersId = setInterval(moveInvaders, 200) // sets the speed at which the moveInvaders function will be called at
 
 function shoot(e) { // function that allows the player to shoot
     let laserId // sets a value for the speed of the laser to be assigned to
